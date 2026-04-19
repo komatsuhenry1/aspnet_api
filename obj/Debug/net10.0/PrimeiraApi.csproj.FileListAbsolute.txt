@@ -31,3 +31,4 @@
 /Users/henrykomatsu/Documents/dev/dotnet/first_api/PrimeiraApi/PrimeiraApi/obj/Debug/net10.0/PrimeiraApi.pdb
 /Users/henrykomatsu/Documents/dev/dotnet/first_api/PrimeiraApi/PrimeiraApi/obj/Debug/net10.0/PrimeiraApi.genruntimeconfig.cache
 /Users/henrykomatsu/Documents/dev/dotnet/first_api/PrimeiraApi/PrimeiraApi/obj/Debug/net10.0/ref/PrimeiraApi.dll
+/Users/henrykomatsu/Documents/dev/dotnet/first_api/PrimeiraApi/PrimeiraApi/obj/Debug/net10.0/PrimeiraApi.sourcelink.json
