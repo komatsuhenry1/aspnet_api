@@ -9,10 +9,10 @@ namespace PrimeiraApi.Controllers
     public class ProdutosController : ControllerBase
     {
 
-        // 1. Criamos a variável local "readonly"
+        // 1. Criamos a variável de escopo local (field)
         private readonly IProdutoService _produtoService;
 
-        // 2. Recebemos via construtor (O .NET vai injetar isso pra gente)
+        // 2. O .NET chama esse construtor e joga o objeto aqui dentro: "(IProdutoService produtoService)"
         public ProdutosController(IProdutoService produtoService)
         {
             _produtoService = produtoService;
