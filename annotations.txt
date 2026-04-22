@@ -1,0 +1,5 @@
+comando para criar a migration:
+dotnet ef migrations add <NomeMigration>
+
+comando para subir/"psuh" da migration:
+dotnet ef database update

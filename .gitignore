@@ -1,0 +1,30 @@
+# Build
+bin/
+obj/
+
+# User-specific files
+*.user
+*.suo
+*.userosscache
+*.sln.docstates
+
+# Rider / VS Code / VS
+.vscode/
+.idea/
+*.swp
+
+# Logs
+*.log
+
+# OS files
+.DS_Store
+Thumbs.db
+
+# Environment variables
+.env
+.env.*
+
+# Publish
+publish/
+
+appsettings.Development.json
