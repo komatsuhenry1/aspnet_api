@@ -1,5 +1,7 @@
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.AspNetCore.Mvc.ApplicationModels;
 using PrimeiraApi.Services; // <-- Importamos o namespace onde está a Service
+using PrimeiraApi.Models;
 
 namespace PrimeiraApi.Controllers
 {
@@ -16,6 +18,13 @@ namespace PrimeiraApi.Controllers
         public ProdutosController(IProdutoService produtoService)
         {
             _produtoService = produtoService;
+        }
+
+        [HttpPost("create")]
+        public IActionResult CreateProduct([FromBody] Produto produto)
+        {
+            _produtoService.CriarProduto(produto);
+            return Created("ok", produto);
         }
         
         // Método GET na rota /api/produtos

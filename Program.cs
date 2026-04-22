@@ -8,6 +8,7 @@ var builder = WebApplication.CreateBuilder(args);
 
 builder.Services.AddControllers();
 builder.Services.AddScoped<IProdutoService, ProdutoService>();
+//builder.Services.AddScoped<IProdutoService, ProdutoService>();
 builder.Services.AddDbContext<AppDbContext>(options =>
     options.UseSqlServer(builder.Configuration.GetConnectionString("DefaultConnection"))); // indica a "marca" do banco de dados, nesse caso é .UseSqlServer mas poderia ser .UseNpgsql() para PostgreSQL, etc.
 
