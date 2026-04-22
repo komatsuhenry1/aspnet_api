@@ -24,7 +24,7 @@ namespace PrimeiraApi.Controllers
         public IActionResult CreateProduct([FromBody] Produto produto)
         {
             _produtoService.CriarProduto(produto);
-            return Created("ok", produto);
+            return Created("", produto);
         }
         
         // Método GET na rota /api/produtos
