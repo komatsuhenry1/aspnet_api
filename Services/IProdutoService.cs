@@ -6,6 +6,6 @@ namespace PrimeiraApi.Services
     public interface IProdutoService
     {
         string[] PegarTodosOsProdutos();
-        void CriarProduto(ProdutoCreateDTO produto);
+        ProdutoCreateResponseDTO CriarProduto(ProdutoCreateResquestDTO produto);
     }
 }

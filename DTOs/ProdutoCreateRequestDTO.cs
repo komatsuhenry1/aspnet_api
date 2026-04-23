@@ -2,7 +2,7 @@ using System.Text.Json.Serialization;
 
 namespace PrimeiraApi.DTOs;
 
-public class ProdutoCreateDTO
+public class ProdutoCreateResquestDTO
 {
     [JsonPropertyName("nome")]
     public string Nome {get;set;}

@@ -1,8 +1,11 @@
 using System.Runtime.CompilerServices;
+using Microsoft.EntityFrameworkCore.Diagnostics;
+using Microsoft.VisualBasic;
 using PrimeiraApi.Controllers;
 using PrimeiraApi.Data;
 using PrimeiraApi.DTOs;
 using PrimeiraApi.Models;
+
 
 namespace PrimeiraApi.Services
 {
@@ -11,7 +14,6 @@ namespace PrimeiraApi.Services
 
         private readonly AppDbContext _context;
 
-        // FALTAVA ISSO: Receber o Banco de Dados instanciado pelo .NET
         public ProdutoService(AppDbContext context)
         {
             _context = context;
@@ -19,11 +21,10 @@ namespace PrimeiraApi.Services
 
         public string[] PegarTodosOsProdutos()
         {
-            // Normalmente aqui iriamos no Banco de Dados.
             return new string[] { "Notebook via Service!", "Teclado", "Mouse" };
         }
 
-        public void CriarProduto(ProdutoCreateDTO dto)
+        public ProdutoCreateResponseDTO CriarProduto(ProdutoCreateResquestDTO dto)
         {
             var produto = new Produto
             {
@@ -41,6 +42,21 @@ namespace PrimeiraApi.Services
             // produto.DataCriacao= DateTime.UtcNow;
             _context.Produtos.Add(produto);
             _context.SaveChanges(); // tem q colocar isso pra salvar as alteracoes
+
+            var produtoCreateResponseDTO = new ProdutoCreateResponseDTO
+            {
+                Id = produto.Id,
+                Nome = produto.Nome,
+                Preco = produto.Preco,
+                Categoria = produto.Categoria,
+                QuantidadeEstoque = produto.QuantidadeEstoque,
+                Ativo = produto.Ativo,
+                Descricao = produto.Descricao,
+                DataCriacao = produto.DataCriacao,
+                DataAtualizacao = produto.DataAtualizacao
+            };
+
+            return produtoCreateResponseDTO;
         }
     }
 }

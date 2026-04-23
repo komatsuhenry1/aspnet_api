@@ -1,7 +1,5 @@
 using Microsoft.AspNetCore.Mvc;
-using Microsoft.AspNetCore.Mvc.ApplicationModels;
 using PrimeiraApi.Services; // <-- Importamos o namespace onde está a Service
-using PrimeiraApi.Models;
 using PrimeiraApi.DTOs;
 
 namespace PrimeiraApi.Controllers
@@ -22,10 +20,10 @@ namespace PrimeiraApi.Controllers
         }
 
         [HttpPost("create")]
-        public IActionResult CreateProduct([FromBody] DTOs.ProdutoCreateDTO dto)
+        public IActionResult CreateProduct([FromBody] ProdutoCreateResquestDTO dto)
         {
-            _produtoService.CriarProduto(dto);
-            return Created("", dto);
+            var ProdutoCreateResponseDTO = _produtoService.CriarProduto(dto);
+            return Created("", ProdutoCreateResponseDTO);
         }
         
         // Método GET na rota /api/produtos
