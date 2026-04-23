@@ -1,10 +1,11 @@
 using PrimeiraApi.Models;
+using PrimeiraApi.DTOs;
 
 namespace PrimeiraApi.Services
 {
     public interface IProdutoService
     {
         string[] PegarTodosOsProdutos();
-        void CriarProduto(Produto produto);
+        void CriarProduto(ProdutoCreateDTO produto);
     }
 }

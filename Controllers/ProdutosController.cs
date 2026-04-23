@@ -2,6 +2,7 @@ using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.ApplicationModels;
 using PrimeiraApi.Services; // <-- Importamos o namespace onde está a Service
 using PrimeiraApi.Models;
+using PrimeiraApi.DTOs;
 
 namespace PrimeiraApi.Controllers
 {
@@ -21,10 +22,10 @@ namespace PrimeiraApi.Controllers
         }
 
         [HttpPost("create")]
-        public IActionResult CreateProduct([FromBody] Produto produto)
+        public IActionResult CreateProduct([FromBody] DTOs.ProdutoCreateDTO dto)
         {
-            _produtoService.CriarProduto(produto);
-            return Created("", produto);
+            _produtoService.CriarProduto(dto);
+            return Created("", dto);
         }
         
         // Método GET na rota /api/produtos
@@ -51,18 +52,11 @@ namespace PrimeiraApi.Controllers
         }
 
         // Método POST na rota /api/produtos
-        [HttpPost]
-        public IActionResult Create([FromBody] ProdutoDTO produto)
-        {
-            // O .NET automaticamente desserializa o JSON do corpo da requisição para o objeto 'produto'
-            return Created("", produto); // Retorna HTTP 201
-        }
-    }
-
-    // Uma classe simples (Record ou class) só para representar o JSON (equivalente a uma struct no Go)
-    public class ProdutoDTO
-    {
-        public string Nome { get; set; }
-        public double Preco { get; set; }
+        // [HttpPost]
+        // public IActionResult Create([FromBody] ProdutoDTO produto)
+        // {
+        //     // O .NET automaticamente desserializa o JSON do corpo da requisição para o objeto 'produto'
+        //     return Created("", produto); // Retorna HTTP 201
+        // }
     }
 }
