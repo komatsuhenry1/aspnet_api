@@ -23,8 +23,10 @@ namespace PrimeiraApi.Services
 
         public void CriarProduto(Produto produto)
         {
+            produto.DataAtualizacao = DateTime.UtcNow;
+            produto.DataCriacao= DateTime.UtcNow;
             _context.Produtos.Add(produto);
-            _context.SaveChanges();
+            _context.SaveChanges(); // tem q colocar isso pra salvar as alteracoes
         }
     }
 }
